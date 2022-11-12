@@ -71,8 +71,8 @@ We make a Rest API Service for an Online Shopping Application.
 ## Order-Controller
 
 
-### Thank You for your Presence
-[![SwaggerUI](https://64.media.tumblr.com/d0635fa4e4bf417b33f24bd481c21f88/tumblr_ppcabrYCWy1ue08b9o1_540.gif)](https://64.media.tumblr.com/d0635fa4e4bf417b33f24bd481c21f88/tumblr_ppcabrYCWy1ue08b9o1_540.gif)
+### Thank You  ###
+
 
 
 
