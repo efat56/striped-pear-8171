@@ -14,7 +14,7 @@ public interface AddressService {
 
 	public Address updateAddress(Address add,String key) throws AddressException,LoginException;
 	
-	public Address removeAddress(Address add,String key) throws AddressException,LoginException;
+	public Address removeAddress(Integer addressId,String key) throws AddressException,LoginException;
 	
 	public List<Address> viewAllAddress(String key) throws AddressException,LoginException;
 	

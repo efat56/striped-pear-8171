@@ -44,14 +44,14 @@ public class AddressController {
 	}
 	
 	@DeleteMapping("/addresses")
-	public ResponseEntity<Address> removeAddress(@Valid @RequestBody Address add,@RequestParam String key) throws AddressException, LoginException{
+	public ResponseEntity<Address> removeAddress(@RequestParam Integer addressId,@RequestParam String key) throws AddressException, LoginException{
 		
-		Address a=aService.removeAddress(add,key);
+		Address a=aService.removeAddress(addressId,key);
 		
 		return new ResponseEntity<Address>(a, HttpStatus.OK);
 	}
 	
-	@GetMapping("/addresses/{customerId}")
+	@GetMapping("/addresses")
 	public ResponseEntity<List<Address>> viewAllAddress(@RequestParam String key) throws AddressException, CustomerException, LoginException{
 		
 		List<Address> alist=aService.viewAllAddress(key);
@@ -59,8 +59,8 @@ public class AddressController {
 		return new ResponseEntity<List<Address>>(alist, HttpStatus.OK);
 	}
 
-	@GetMapping("/addresses")
-	public ResponseEntity<List<Address>> viewAllAddress(@Valid @RequestBody Address add) throws AddressException, CustomerException{
+	@GetMapping("/getaddresses")
+	public ResponseEntity<List<Address>> viewAllAddress() throws AddressException, CustomerException{
 		
 		List<Address> alist=aService.viewAllAddress();
 		

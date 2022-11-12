@@ -1,6 +1,9 @@
 package com.masai.service;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.dto.AddressDTO;
+import com.masai.dto.OrderDTO;
 import com.masai.dto.ProductDTO;
 import com.masai.exception.AddressException;
 import com.masai.exception.CartException;
@@ -47,7 +51,7 @@ public class OrderServiceImpl implements OrderService{
 	private AddressDAO aDao;
 
 	@Override
-	public Orders addOrder(Orders order, String key) throws OrderException, CartException, LoginException,ProductException {
+	public Orders addOrder(OrderDTO order, String key) throws OrderException, CartException, LoginException,ProductException {
 		
 		CurrentUsersSession optcurrentuser=sDao.findByUuid(key);
 		
@@ -59,10 +63,10 @@ public class OrderServiceImpl implements OrderService{
 			 
 			 List<Address> ad = ourCustomer.get().getAddresses();
 			 
-			 Address addr=ad.get(ad.size()-1);
+			 Address addr=ad.get(0);
 			 Orders currOrder = new Orders();
 			 
-			 currOrder.setOrderDate(LocalDate.now());
+			 currOrder.setOrderDate(order.getOrderDate());
 			 AddressDTO adto=new AddressDTO(addr.getStreetNo(), addr.getHouseNumber(), addr.getCity(), addr.getState(), addr.getCountry(), addr.getPincode());
 			currOrder.setOrderAddress(adto);
 			 
@@ -110,15 +114,17 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public Orders updateOrder(Orders order, String key) throws OrderException, LoginException {
+	public Orders updateOrder(OrderDTO order, String key,Integer orderId) throws OrderException, LoginException {
 
 		CurrentUsersSession optcurrentuser=sDao.findByUuid(key);
 		if(optcurrentuser==null) {
 			throw new LoginException("User not found "+key);
 		}else {
-			Optional<Orders> o=oDao.findById(order.getOrderId());
+			Optional<Orders> o=oDao.findById(orderId);
 			if(o.isPresent()) {
-				Orders or=oDao.save(o.get());
+				o.get().setOrderDate(order.getOrderDate());
+				Orders ord=o.get();
+				Orders or=oDao.save(ord);
 				return or;
 			}else {
 				throw new OrderException("Order not found");
@@ -158,9 +164,15 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public List<Orders> viewAllOrdersByDate(LocalDate date) throws OrderException {
+	public List<Orders> viewAllOrdersByDate(String date) throws OrderException {
 		
-		List<Orders> orders= oDao.findByOrderDate(date);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		
+
+		  //convert String to LocalDate
+		  LocalDate localDate = LocalDate.parse(date, formatter);
+		
+		List<Orders> orders= oDao.findByOrderDate(localDate);
 		
 		if(orders.size()>0) {
 			

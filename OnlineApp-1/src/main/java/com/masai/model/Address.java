@@ -55,7 +55,7 @@ public class Address {
 	private String pincode;
 
 	@JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Customer customer;
 
 }

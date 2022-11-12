@@ -37,9 +37,9 @@ public class AddressServiceImpl implements AddressService{
 				Optional<Customer> c=cDao.findById(loginUser.getUserId());
 				if(c.isPresent()) {
 					c.get().getAddresses().add(add);
+					add.setCustomer(c.get());
 					Address a=aDao.save(add);
 					if(a!=null) {
-							a.setCustomer(c.get());
 						return a;
 					}else {
 						throw new AddressException("Address not saved");
@@ -58,7 +58,11 @@ public class AddressServiceImpl implements AddressService{
 		}else {
 			Optional<Address> a=aDao.findById(add.getAddressId());
 			if(a.isPresent()) {
-			Address addr=aDao.save(a.get());
+			
+				Optional<Customer> c=cDao.findById(loginUser.getUserId());
+				
+				add.setCustomer(c.get());
+			Address addr=aDao.save(add);
 			return addr;
 			}else {
 			throw new AddressException("Address not found");
@@ -69,15 +73,24 @@ public class AddressServiceImpl implements AddressService{
 
 	}
 	@Override
-	public Address removeAddress(Address add, String key) throws AddressException, LoginException {
+	public Address removeAddress(Integer addressId, String key) throws AddressException, LoginException {
 		
 		CurrentUsersSession loginUser=sDao.findByUuid(key);
 		if(loginUser==null) {
 			throw new LoginException("please login");
 		}else {
-			Optional<Address> a=aDao.findById(add.getAddressId());
+			Optional<Address> a=aDao.findById(addressId);
 			if(a.isPresent()) {
 			Address addr=a.get();
+			Optional<Customer> c=cDao.findById(loginUser.getUserId());
+			List<Address> alist=c.get().getAddresses();
+			for(int i=0;i<alist.size();i++) {
+				if(alist.get(i).getAddressId()==addressId) {
+					alist.remove(i);
+				}
+			}
+			c.get().setAddresses(alist);
+			cDao.save(c.get());
 			aDao.delete(addr);
 			return addr;
 			}else {
