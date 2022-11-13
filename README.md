@@ -82,8 +82,8 @@
 ## Error-Controller
 ![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ErrorController.png)
 
-## Thank You 
-![image](https://assets.materialup.com/uploads/7c3e24bd-eccc-4e77-92a9-fc85667d8ad5/preview.gif)
+
+![MasterHead](https://64.media.tumblr.com/d0635fa4e4bf417b33f24bd481c21f88/tumblr_ppcabrYCWy1ue08b9o1_540.gif)
 
 
 
