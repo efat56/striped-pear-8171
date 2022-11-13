@@ -83,7 +83,7 @@
 ![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ErrorController.png)
 
 
-![MasterHead](https://64.media.tumblr.com/d0635fa4e4bf417b33f24bd481c21f88/tumblr_ppcabrYCWy1ue08b9o1_540.gif)
+<p align="center"> <img src="https://64.media.tumblr.com/d0635fa4e4bf417b33f24bd481c21f88/tumblr_ppcabrYCWy1ue08b9o1_540.gif" alt="" /> </p>
 
 
 
