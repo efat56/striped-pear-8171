@@ -1,6 +1,6 @@
 # Online Shopping Application API 
 
-We make a Rest API Service for an Online Shopping Application. 
+ We make a Rest API Service for an Online Shopping Application. 
 
 
 ## Entity Relationship Diagram
