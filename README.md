@@ -44,13 +44,11 @@ We make a Rest API Service for an Online Shopping Application.
 
 
 # Team-Members
-
--   Efat Husneara
--   Rupak Tyagi
--   Swapnil Vhantale
--   Shameem A
--   Aman Sharma
-
+- [Efat Husneara](https://github.com/efat56)
+- [Rupak Tyagi](https://github.com/Rupaktyagi)
+- [Swapnil Vhantale](https://github.com/spvhantale)
+- [Shameem A](https://github.com/shameemlatheef)
+- [Aman Sharma](https://github.com/thesharmaa)
 # Backend
 
 ## Swagger UI
