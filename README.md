@@ -4,7 +4,7 @@ We make a Rest API Service for an Online Shopping Application.
 
 
 ## Entity Relationship Diagram
-
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ER%20Diagram.jpeg)
 
 
 
@@ -26,12 +26,14 @@ We make a Rest API Service for an Online Shopping Application.
 -  You can clone this repo and start the serve on localhost
 -   Before running the API server, we should update the database config inside the application.properties file.
 -   Update the port number, username and password as per our local database config.
-    -   server.port=8888
+    -   server.port=8088
     -   spring.datasource.url=jdbc:mysql://localhost:3306/shoppingdb
     -   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-    -   spring.datasource.username=root
+    -   spring.datasource.username=**Your UserName**
     -   spring.datasource.password=**YourPassword**
     -   spring.jpa.hibernate.ddl-auto=update
+    -   spring.jpa.show-sql=true
+    -   spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
 
 # Tech Stacks
 
@@ -40,6 +42,12 @@ We make a Rest API Service for an Online Shopping Application.
 -   Spring Boot
 -   Hibernate
 -   MySQL
+<p>
+   <img src="https://img.icons8.com/color/64/000000/java.png"/>
+   <img src="https://img.icons8.com/color/48/null/spring-logo.png"/>
+   <img src="https://github.com/efat56/striped-pear-8171/blob/main/Images/hibernate_logo_icon_171004.png" />
+   <img src="https://img.icons8.com/ios/50/null/mysql-logo.png"/>
+</p>
 
 
 
@@ -49,25 +57,29 @@ We make a Rest API Service for an Online Shopping Application.
 - [Swapnil Vhantale](https://github.com/spvhantale)
 - [Shameem A](https://github.com/shameemlatheef)
 - [Aman Sharma](https://github.com/thesharmaa)
+
 # Backend
 
 ## Swagger UI
-
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/AllController.png)
 
 ## Customer-Controller
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/CustomerController.png)
 
-
-## User-Controller
-
+## Address-Controller
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/AddressController.png)
 
 ## Product-Controller
-
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ProductController.png)
 
 ## Cart-Controller
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/CartController.png)
 
+## OrderAndLogin-Controller
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/LoginAndOrderController.png)
 
-## Order-Controller
-
+## Error-Controller
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ErrorController.png)
 
 ### Thank You  ###
 
