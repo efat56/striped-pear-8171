@@ -4,7 +4,7 @@
 
 
 ## Entity Relationship Diagram
-![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ER%20Diagram.jpeg)
+![image](https://github.com/efat56/striped-pear-8171/blob/main/Images/ERDiagram.jpg)
 
 
 
