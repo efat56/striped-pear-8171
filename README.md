@@ -40,7 +40,6 @@
 -to check the swagger http://localhost:8088/swagger-ui/
 
 # Tech Stacks
-
 -   Java Core
 -   Spring Data JPA
 -   Spring Boot
